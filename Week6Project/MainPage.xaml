@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Week6Project.MainPage"
+             Padding="0,20,0,0"
+             >
+
+  <StackLayout Padding="20">
+        <Button Text="Add" Clicked="addNewTask"/>
+        <ListView x:Name="allTasksTable" ItemSelected="updateDB">
+           <ListView.ItemTemplate>
+               <DataTemplate>
+                    <ImageCell Text="{Binding task}" ImageSource="{Binding taskImage}">
+                        <ImageCell.ContextActions>
+                            <MenuItem Text="Delete" CommandParameter="{Binding .}" IsDestructive="True" Clicked="deleteFromDB"/>
+                        </ImageCell.ContextActions>
+                        
+
+                    </ImageCell>
+                   </DataTemplate>
+               </ListView.ItemTemplate>
+        </ListView>
+        </StackLayout>
+
+
+</ContentPage>
